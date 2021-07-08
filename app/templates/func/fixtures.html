@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} Fixtures {% endblock %}
+
+{%block content%} 
+    <h1 align = "center" >Fixtures</h1>
+    <ul class="list-group list-group-flush" id="fixtures"></ul>
+    {% for a_fixture in fixtures %}
+    <li class="list-group-item" align = "center">
+       <p align = "center">{{a_fixture.home}}  {{a_fixture.home_score}} - {{a_fixture.away_score}} {{a_fixture.away}}
+    </p>
+    </li>
+    {% endfor %}
+{% endblock %}

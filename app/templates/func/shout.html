@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %} Shouts {% endblock %}
+
+{% block content %}
+
+
+<form method = "POST">
+
+    <h3 align= "center" >Have a Shout</h3>
+    <div class="form-group">
+        <label for = "Shouts"></label>
+        <textarea name = "shout" class="form-control" id="shout" ></textarea>
+    </div>
+    <br />  
+    <div align = "center">
+    <button   type = "Submit" class = "btn btn-primary">Shout</button>
+    </div>
+</form>
+
+<h1 align = "center" >Previous Shouts</h1>
+    <ul class="list-group list-group-flush" id="shouts"></ul>
+    {% for a_shout in current_user.shouts %}
+    <li class="list-group-item">
+        {{a_shout.data}}
+        <button type="button" class="close" onClick="deleteShout({{ a_shout.id }})">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </li>
+    {% endfor %}
+{% endblock %}
